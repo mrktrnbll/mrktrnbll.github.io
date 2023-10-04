@@ -1,11 +1,10 @@
 body {
     font-family: "VT323";
-    background-image: url("assests/photos/aberd.jpg");
+    background-image: url("assests/photos/aberd2.jpg");
     background-color: #192e35;
     background-size: auto;
     background-repeat: no-repeat;
-    background-size: 230%;
-    background-position: 40% 0%;
+    background-position: 20% 0%;
 }
 
 p {
