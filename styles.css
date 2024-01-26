@@ -97,7 +97,7 @@
         background-color: #3a3a3a;
         background-repeat: no-repeat;
         background-size: auto;
-        /* background-position: 20% 25%; */
+        background-position: 20% 35%;
     }
     
     .landing-bg {
@@ -114,6 +114,7 @@
     .landing-content {
         position: absolute;
         z-index: 0;
+        /* padding-top: 5vh; */
     }
 
     p {
@@ -127,7 +128,7 @@
         animation: typing 5s steps(60) 1s forwards;
         position: relative; /* Add this for caret positioning */
         max-width: 100%;
-        padding-left: 80px;
+        padding-left: 15px;
     }
 
     @keyframes typing {
@@ -163,21 +164,21 @@
     .intro-heading {
         position: relative;
         animation: typing 3s steps(60) 1s forwards, blink-caret 0.5s step-end infinite;
-        font-size: 50px; /* Change font size for the first element */
-        padding-top: 300px;
+        font-size: 25px; /* Change font size for the first element */
+        padding-top: 50px;
     }
 
     .intro-description {
         position: relative;
         animation: typing 4s steps(60) 3.5s forwards, blink-caret 0.5s step-end infinite;
-        font-size: 25px; /* Change font size for the second element */
+        font-size: 15px; /* Change font size for the second element */
         padding-top: 10px;
     }
 
     .intro-description-2 {
         position: relative;
         animation: typing 4s steps(60) 7s forwards, blink-caret 0.5s step-end infinite;
-        font-size: 25px; /* Change font size for the third element */
+        font-size: 15px; /* Change font size for the third element */
         padding-top: 10px;
     }
 }
