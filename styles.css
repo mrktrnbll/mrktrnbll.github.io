@@ -114,7 +114,8 @@
     .landing-content {
         position: absolute;
         z-index: 0;
-        max-width: 100%;
+        width: 380px;
+        height: 140px;
     }
 
     p {
@@ -142,10 +143,10 @@
 
     @keyframes blink-caret {
         from, to {
-            border-right: 2px solid transparent;
+            border-right: solid transparent;
         }
         50% {
-            border-right: 2px solid transparent;
+            border-right: solid transparent;
         }
     }
 
@@ -157,7 +158,7 @@
         top: 0;
         right: -300px; /* Adjust the right position to align with the text */
         height: 100%;
-        border-right: 2px solid #000; /* Set the caret color */
+        /* border-right: 2px solid #000; Set the caret color */
         animation: blink-caret 0.3s step-end ;
     }
 
