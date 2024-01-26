@@ -1,94 +1,183 @@
-body {
-    font-family: "VT323";
-    background-image: url("assests/photos/aberd2.jpg");
-    background-color: #192e35;
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position: 20% 0%;
-}
+@media only screen and (min-width: 992px) {
+    body {
+        font-family: "VT323";
+        background-image: url("assests/photos/arran.jpg");
+        background-color: #3a3a3a;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: 60% 30%;
+    }
 
-p {
-    margin: 0px;
-}
+    .landing-bg {
+        position: absolute;
+        /* content: url(assests/photos/arran.jpg); */
+        display: block;
+        left: auto;
+        right: auto;
+        width: 98vw;
+        height: 98vh;
+        z-index: -1;
+    }
 
-/* 
-.fade-in-typing-text p {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 0;
-    animation: typing 10s steps(100) 500ms forwards, blink-caret 0.5s step-end
-}
+    .landing-content {
+        position: absolute;
+        z-index: 0;
+    }
 
-@keyframes typing {
-    from {
+    p {
+        margin: 0px;
+    }
+
+    .fade-in-typing-text > * {
+        overflow: hidden;
+        white-space: nowrap;
         width: 0;
+        animation: typing 5s steps(60) 1s forwards;
+        position: relative; /* Add this for caret positioning */
+        max-width: 100%;
+        padding-left: 80px;
     }
-    to {
-        width: 100%;
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink-caret {
+        from, to {
+            border-right: 2px solid transparent;
+        }
+        50% {
+            border-right: 2px solid transparent;
+        }
+    }
+
+    /* Add this for caret positioning */
+    .fade-in-typing-text > *::after {
+        z-index: 10;
+        content: '|'; /* Create a pseudo-element */
+        position: absolute;
+        top: 0;
+        right: -300px; /* Adjust the right position to align with the text */
+        height: 100%;
+        border-right: 2px solid #000; /* Set the caret color */
+        animation: blink-caret 0.3s step-end ;
+    }
+
+    .intro-heading {
+        position: relative;
+        animation: typing 3s steps(60) 1s forwards, blink-caret 0.5s step-end infinite;
+        font-size: 50px; /* Change font size for the first element */
+        padding-top: 300px;
+    }
+
+    .intro-description {
+        position: relative;
+        animation: typing 4s steps(60) 3.5s forwards, blink-caret 0.5s step-end infinite;
+        font-size: 25px; /* Change font size for the second element */
+        padding-top: 10px;
+    }
+
+    .intro-description-2 {
+        position: relative;
+        animation: typing 4s steps(60) 7s forwards, blink-caret 0.5s step-end infinite;
+        font-size: 25px; /* Change font size for the third element */
+        padding-top: 10px;
     }
 }
 
-@keyframes blink-caret {
-    from, to {
-        border-right: 2px solid transparent;
+@media only screen and (max-width: 992px) {
+    body {
+        font-family: "VT323";
+        background-image: url("assests/photos/arran-mobile.jpg");
+        background-color: #3a3a3a;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: 20% 0%;
     }
-    50% {
-        border-right: 2px solid #000;
+    
+    .landing-bg {
+        position: absolute;
+        content: url(assests/photos/arran-mobile.jpg);
+        display: block;
+        left: auto;
+        right: auto;
+        width: 98vw;
+        height: 98vh;
+        z-index: -1;
     }
-} */
 
-.fade-in-typing-text > * {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 0;
-    animation: typing 5s steps(60) 1s forwards;
-    position: relative; /* Add this for caret positioning */
-    max-width: 500px;
-    padding-left: 80px;
-}
+    .landing-content {
+        position: absolute;
+        z-index: 0;
+    }
 
-@keyframes typing {
-    from {
+    p {
+        margin: 0px;
+    }
+
+    .fade-in-typing-text > * {
+        overflow: hidden;
+        white-space: nowrap;
         width: 0;
+        animation: typing 5s steps(60) 1s forwards;
+        position: relative; /* Add this for caret positioning */
+        max-width: 100%;
+        padding-left: 80px;
     }
-    to {
-        width: 100%;
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
     }
-}
 
-@keyframes blink-caret {
-    from, to {
-        border-right: 2px solid transparent;
+    @keyframes blink-caret {
+        from, to {
+            border-right: 2px solid transparent;
+        }
+        50% {
+            border-right: 2px solid transparent;
+        }
     }
-    50% {
-        border-right: 2px solid transparent;
+
+    /* Add this for caret positioning */
+    .fade-in-typing-text > *::after {
+        z-index: 10;
+        content: '|'; /* Create a pseudo-element */
+        position: absolute;
+        top: 0;
+        right: -300px; /* Adjust the right position to align with the text */
+        height: 100%;
+        border-right: 2px solid #000; /* Set the caret color */
+        animation: blink-caret 0.3s step-end ;
     }
-}
 
-/* Add this for caret positioning */
-.fade-in-typing-text > *::after {
-    content: '|'; /* Create a pseudo-element */
-    position: absolute;
-    top: 0;
-    right: -300px; /* Adjust the right position to align with the text */
-    height: 100%;
-    border-right: 2px solid #000; /* Set the caret color */
-    animation: blink-caret 0.5s step-end ;
-}
+    .intro-heading {
+        position: relative;
+        animation: typing 3s steps(60) 1s forwards, blink-caret 0.5s step-end infinite;
+        font-size: 50px; /* Change font size for the first element */
+        padding-top: 300px;
+    }
 
-.intro-heading {
-    animation: typing 5s steps(60) 1s forwards, blink-caret 0.5s step-end infinite;
-    font-size: 50px; /* Change font size for the first element */
-    padding-top: 80px;
-}
+    .intro-description {
+        position: relative;
+        animation: typing 4s steps(60) 3.5s forwards, blink-caret 0.5s step-end infinite;
+        font-size: 25px; /* Change font size for the second element */
+        padding-top: 10px;
+    }
 
-.intro-description {
-    animation: typing 5s steps(60) 3s forwards, blink-caret 0.5s step-end infinite;
-    font-size: 25px; /* Change font size for the second element */
-    padding-top: 10px;
-}
-
-.element-3 {
-    animation: typing 5s steps(60) 11s forwards, blink-caret 0.5s step-end infinite;
-    font-size: 16px; /* Change font size for the third element */
+    .intro-description-2 {
+        position: relative;
+        animation: typing 4s steps(60) 7s forwards, blink-caret 0.5s step-end infinite;
+        font-size: 25px; /* Change font size for the third element */
+        padding-top: 10px;
+    }
 }
