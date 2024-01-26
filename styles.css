@@ -28,6 +28,10 @@
         margin: 0px;
     }
 
+    #links {
+        position: relative;
+    }
+
     .fade-in-typing-text > * {
         overflow: hidden;
         white-space: nowrap;
@@ -70,22 +74,28 @@
 
     .intro-heading {
         position: relative;
-        animation: typing 3s steps(60) 1s forwards, blink-caret 0.5s step-end infinite;
+        animation: typing 2s steps(60) 1s forwards, blink-caret 0.5s step-end infinite;
         font-size: 50px; /* Change font size for the first element */
         padding-top: 300px;
     }
 
     .intro-description {
         position: relative;
-        animation: typing 4s steps(60) 3.5s forwards, blink-caret 0.5s step-end infinite;
+        animation: typing 2s steps(60) 3.5s forwards, blink-caret 0.5s step-end infinite;
         font-size: 25px; /* Change font size for the second element */
         padding-top: 10px;
     }
 
     .intro-description-2 {
         position: relative;
-        animation: typing 4s steps(60) 7s forwards, blink-caret 0.5s step-end infinite;
+        animation: typing 2s steps(60) 6s forwards, blink-caret 0.5s step-end infinite;
         font-size: 25px; /* Change font size for the third element */
+        padding-top: 10px;
+    }
+    .links {
+        position: relative;
+        animation: typing 2s steps(60) 8s forwards, blink-caret 0.5s step-end infinite;
+        font-size: 25px; /* Change font size for the second element */
         padding-top: 10px;
     }
 }
@@ -120,6 +130,10 @@
 
     p {
         margin: 0px;
+    }
+
+    #links {
+        position: relative;
     }
 
     .fade-in-typing-text > * {
@@ -178,8 +192,14 @@
 
     .intro-description-2 {
         position: relative;
-        animation: typing 2s steps(60) 7s forwards, blink-caret 0.5s step-end infinite;
+        animation: typing 2s steps(60) 5.5s forwards, blink-caret 0.5s step-end infinite;
         font-size: 15px; /* Change font size for the third element */
+        padding-top: 10px;
+    }
+    .links {
+        position: relative;
+        animation: typing 1s steps(60) 7s forwards, blink-caret 0.5s step-end infinite;
+        font-size: 15px; /* Change font size for the second element */
         padding-top: 10px;
     }
 }
