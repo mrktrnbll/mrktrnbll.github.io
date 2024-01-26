@@ -5,7 +5,7 @@
         background-color: #3a3a3a;
         background-repeat: no-repeat;
         background-size: auto;
-        background-position: 60% 30%;
+        background-position: 60% 15%;
     }
 
     .landing-bg {
@@ -114,7 +114,7 @@
     .landing-content {
         position: absolute;
         z-index: 0;
-        /* padding-top: 5vh; */
+        max-width: 100%;
     }
 
     p {
@@ -128,7 +128,7 @@
         animation: typing 5s steps(60) 1s forwards;
         position: relative; /* Add this for caret positioning */
         max-width: 100%;
-        padding-left: 15px;
+        padding-left: 5px;
     }
 
     @keyframes typing {
@@ -165,7 +165,7 @@
         position: relative;
         animation: typing 3s steps(60) 1s forwards, blink-caret 0.5s step-end infinite;
         font-size: 25px; /* Change font size for the first element */
-        padding-top: 50px;
+        padding-top: 30px;
     }
 
     .intro-description {
