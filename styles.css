@@ -76,7 +76,7 @@
         position: relative;
         animation: typing 2s steps(60) 1s forwards, blink-caret 0.5s step-end infinite;
         font-size: 50px; /* Change font size for the first element */
-        padding-top: 300px;
+        padding-top: 240px;
     }
 
     .intro-description {
