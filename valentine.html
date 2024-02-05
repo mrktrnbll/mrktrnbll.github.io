@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button and GIF Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Aclonica" rel="stylesheet"> 
+    <style>
+        body {
+            background-color: lightcoral;
+            background-image: none;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            font-family: 'Aclonica';
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="valentine-gif">
+        <iframe src="https://giphy.com/embed/4Zvt4ZDe018rySrOky" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <p id="valentine-text">will u be my valentine?</p>
+    </div>
+    
+    <div id="valentine-answer">
+        <button id="button-yes" onclick="buttonClick('yes')">Yes</button>
+        <button id="button-no" onclick="buttonClick('no')">No</button>
+    </div>
+
+    <div id="valentine-reply">
+        <p id="reply-no">dunno how we got here -_-</p>
+        <p id="reply-yes">blood giving date with wine! <3 xx<p>
+    </div>
+
+    <script>
+        function buttonClick(message) {
+             if (message == 'no') {
+                document.getElementById('button-no').remove();
+                document.getElementById('reply-no').style.opacity = 1;
+             }
+             else {
+                document.getElementById('reply-yes').style.opacity = 1;
+             }
+        }
+    </script>
+
+</body>
+</html>

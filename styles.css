@@ -9,6 +9,7 @@ body {
     background-position: 60% 35%;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
+    display: flex;
     flex-flow: column wrap;
     justify-content: left;
     width: 100%;
@@ -76,5 +77,80 @@ p {
         font-size: x-large;
         opacity: 0;
         transition: opacity 1s ease-in-out;
+    }
+
+    #valentine {
+        order: 4;
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+    }
+
+    #valentine-gif {
+        padding-top: 20vh;
+        display: flex;
+        flex-flow: row wrap;
+        order: 1;
+        justify-content: center;
+    }
+
+    #valentine-text {
+        padding-top: 0.6em;
+    }
+
+    #valentine-answer {
+        order: 2;
+        padding-top: 3em;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    #valentine-reply {
+        order: 3;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    #reply-no {
+        padding-top: 0.6em;
+        opacity: 0;
+    }
+
+    #reply-yes {
+        padding-top: 0.6em;
+        opacity: 0;
+    }
+
+    #button-yes {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+        background-color: rgb(235, 98, 98);
+        color: black;
+    }
+    #button-no {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+        background-color: rgb(235, 98, 98);
+        color: black;
+    }
+    
+    button:hover {
+        background-color: rgb(235, 98, 98);
+    }
+    
+    button:active {
+        background-color: rgb(235, 98, 98);
     }
 }
