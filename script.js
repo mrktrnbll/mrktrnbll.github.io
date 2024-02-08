@@ -1,18 +1,7 @@
 const introHeading = "Hello I'm Mark!"
-const introBody = "I'm a 3rd University of Glasgow computing science student, theres nothing here just now, instead heres my links!"
+const introBody = "I'm a 3rd year computing science student at the University of Glasgow, there's nothing here just now, so instead, heres my links!"
 
 async function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
-
-// const flashCaret = async (id) => {
-//     const caret = "|"
-//     for (let i = 0; i < 7; i++) {
-//         await sleep(100);
-//         if (id.textContent == caret) {
-//             id.textContent = ;
-//         }
-//         else { id.textContent = caret; }
-//     }
-// }
 
 const typeCharacters = async () => {
     let heading = document.getElementById("textHeading");
@@ -30,4 +19,4 @@ const typeCharacters = async () => {
     }
     await sleep(1000);
     links.style.opacity = 1;
-}
+    }

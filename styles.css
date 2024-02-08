@@ -48,12 +48,23 @@ p {
         padding-top: .2em;
     }
 
-    #links {
+    .links {
         order: 3;
         padding-top: .2em;
         font-size: x-large;
         opacity: 0;
         transition: opacity 1s ease-in-out;
+    }
+
+    #about-extended {
+        order: 4;
+        padding-top: 80vh;
+        padding-left: 8vw;
+    }
+
+    .headers {
+        font-size: xx-large;
+        width: 8em;
     }
 }
 
@@ -71,13 +82,28 @@ p {
         padding-top: .2em;
     }
 
-    #links {
+    .links {
         order: 3;
         padding-top: .2em;
         font-size: x-large;
         opacity: 0;
         transition: opacity 1s ease-in-out;
     }
+
+    #about-extended {
+        order: 4;
+        padding-top: 60vh;
+        font-size: small;
+    }
+
+    .headers {
+        font-size: xx-large;
+        width: 8em;
+    }
+
+
+
+    /* valentine css stuff */
 
     #valentine {
         order: 4;
