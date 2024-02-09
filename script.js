@@ -6,7 +6,7 @@ async function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)
 const typeCharacters = async () => {
     let heading = document.getElementById("textHeading");
     let body = document.getElementById("textBody");
-    let links = document.getElementById("links");
+    let links = document.getElementsByClassName("links");
 
     for (let i = 0; i < introHeading.length; i++) {
         await sleep(100);
@@ -18,5 +18,6 @@ const typeCharacters = async () => {
         body.textContent += introBody[i];
     }
     await sleep(1000);
-    links.style.opacity = 1;
+    for (let i = 0; links.length>0; i++)
+        links[i].style.opacity = 1;
     }
