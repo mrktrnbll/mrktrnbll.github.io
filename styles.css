@@ -4,16 +4,21 @@ html{
 
 body {
     font-family: "VT323";
-    background-color: rgb(160, 160, 160);
-    background-image: url(assests/photos/arran.jpg);
-    background-position: 60% 35%;
-    background-repeat: no-repeat;
-    background-blend-mode: overlay;
+    /* background-image: url(assests/photos/arran.jpg); */
+    /* background-position: 60% 35%; */
+    /* background-repeat: no-repeat; */
+    /* filter: grayscale(100%); */
     display: flex;
     flex-flow: column wrap;
-    justify-content: left;
-    width: 100%;
+    justify-content: left;  
+    /* width: 100%; */
     margin: 0;
+}
+
+img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    z-index: 1;
 }
 
 p {
@@ -21,6 +26,7 @@ p {
 }
 
 #introduction {
+    z-index: 2;
     order: 1;
     padding-top: 24vh;
     padding-left: 8vw;
