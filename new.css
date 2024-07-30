@@ -1,6 +1,7 @@
 body {
     background-color: #9c8181;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -22,4 +23,41 @@ body {
     height: 3vw;
     width: 3vw;
     object-fit: contain;
+}
+
+#intro-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: baseline;
+    height: 30vh;
+}
+
+#intro-heading {
+    align-self: center;
+    margin: 0;
+    font-size: 6em;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    font-family: "VT323";
+}
+
+.intro-content {
+    align-self: center;
+    margin: 0;
+    font-size: 2em;
+    font-family: "VT323";
+}
+
+#project-heading {
+    align-self: center;
+    margin: 0;
+    font-size: 3em;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    font-family: "VT323";
+}
+
+
+#below-oval {
+    height: 30vh;
 }

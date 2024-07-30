@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector('#oval-container');
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
-    const borderOffset = 40;
-    const radiusX = (containerWidth / 2) - borderOffset;
-    const radiusY = (containerHeight / 2) - borderOffset;
+    const borderOffsetx = 60;
+    const borderOffsety = 30;
+    const radiusX = (containerWidth / 2) - borderOffsetx;
+    const radiusY = (containerHeight / 2) - borderOffsety;
     const speed = 2;
 
     images.forEach((img) => {
@@ -13,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function setInitialPosition() {
 
-            x = Math.random() * (containerWidth - 2 * borderOffset - img.clientWidth) + borderOffset;
-            y = Math.random() * (containerHeight - 2 * borderOffset - img.clientHeight) + borderOffset;
+            x = Math.random() * (containerWidth - 2 * borderOffsetx - img.clientWidth) + borderOffsetx;
+            y = Math.random() * (containerHeight - 2 * borderOffsety - img.clientHeight) + borderOffsety;
             angle = Math.random() * 2 * Math.PI;
             dx = speed * Math.cos(angle);
             dy = speed * Math.sin(angle);
@@ -49,19 +50,19 @@ document.addEventListener('DOMContentLoaded', function() {
             x += dx;
             y += dy;
 
-            if (x <= borderOffset || x + img.clientWidth >= containerWidth - borderOffset) {
-                if (x <= borderOffset) {
-                    x = borderOffset;
+            if (x <= borderOffsetx || x + img.clientWidth >= containerWidth - borderOffsetx) {
+                if (x <= borderOffsetx) {
+                    x = borderOffsetx;
                 } else {
-                    x = containerWidth - borderOffset - img.clientWidth;
+                    x = containerWidth - borderOffsetx - img.clientWidth;
                 }
                 setRandomDirection();
             }
-            if (y <= borderOffset || y + img.clientHeight >= containerHeight - borderOffset) {
-                if (y <= borderOffset) {
-                    y = borderOffset;
+            if (y <= borderOffsety || y + img.clientHeight >= containerHeight - borderOffsety) {
+                if (y <= borderOffsety) {
+                    y = borderOffsety;
                 } else {
-                    y = containerHeight - borderOffset - img.clientHeight;
+                    y = containerHeight - borderOffsety - img.clientHeight;
                 }
                 setRandomDirection();
             }
