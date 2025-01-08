@@ -30,7 +30,7 @@ p {
         z-index: 2;
         order: 1;
         padding-top: 6vh;
-        padding-left: 68vw;
+        padding-left: 8vw;
         height: 30vh;
         display: flex;
         flex-flow: column wrap;
