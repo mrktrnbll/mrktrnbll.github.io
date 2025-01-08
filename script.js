@@ -21,3 +21,14 @@ const typeCharacters = async () => {
     for (let i = 0; links.length>0; i++)
         links[i].style.opacity = 1;
     }
+
+document.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const introductionHeight = document.getElementById("introduction").offsetHeight;
+
+    if (scrollY >= introductionHeight / 10) {
+        document.body.classList.add("scrolled");
+    } else {
+        document.body.classList.remove("scrolled");
+    }
+});

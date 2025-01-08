@@ -1,9 +1,20 @@
-html{
+html {
     scroll-behavior: smooth;
 }
 
 p {
     margin: 0;
+}
+
+body {
+    font-family: "VT323";
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 #projects {
@@ -13,27 +24,38 @@ p {
 
 @media only screen and (min-width: 768px) {
 
-    body {
-        font-family: "VT323";
-        background-image: url(assests/photos/arran.webp);
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: left;
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-    }
-
     #introduction {
-        z-index: 2;
-        order: 1;
+        z-index: 1;
         padding-top: 6vh;
         padding-left: 8vw;
-        height: 30vh;
+        height: 100vh;
         display: flex;
         flex-flow: column wrap;
+        position: relative;
+    }
+
+    #more-information {
+        background: #333333FF;
+        color: white;
+        height: 100vh;
+        z-index: 2;
+        padding: 1em;
+        font-size: 2em;
+        position: relative;
+        transform: translateY(100vh);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .scrolled #more-information {
+        transform: translateY(0);
+    }
+
+    #arran {
+        content: url(assests/photos/arran.webp);
+        z-index: -100;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
     }
 
     #textHeading {
