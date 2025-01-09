@@ -29,9 +29,10 @@ document.addEventListener("scroll", () => {
     if (scrollY >= introductionHeight / 2) {
         document.body.classList.add("scrolled");
         document.getElementById("end-padding").style.opacity = 1;
-
+        document.getElementById("end-padding").style.zIndex = 3;
     } else {
         document.body.classList.remove("scrolled");
         document.getElementById("end-padding").style.opacity = 0;
+        document.getElementById("end-padding").style.zIndex = 1;
     }
 });
