@@ -26,9 +26,12 @@ document.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     const introductionHeight = document.getElementById("introduction").offsetHeight;
 
-    if (scrollY >= introductionHeight / 10) {
+    if (scrollY >= introductionHeight / 2) {
         document.body.classList.add("scrolled");
+        document.getElementById("end-padding").style.opacity = 1;
+
     } else {
         document.body.classList.remove("scrolled");
+        document.getElementById("end-padding").style.opacity = 0;
     }
 });

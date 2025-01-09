@@ -12,7 +12,7 @@ body {
     flex-flow: row wrap;
     justify-content: left;
     width: 100vw;
-    height: 100vh;
+    height: 200vh;
     margin: 0;
     overflow-x: hidden;
 }
@@ -31,7 +31,7 @@ body {
         height: 100vh;
         display: flex;
         flex-flow: column wrap;
-        position: relative;
+        position: fixed;
     }
 
     #more-information {
@@ -42,12 +42,22 @@ body {
         padding: 1em;
         font-size: 2em;
         position: relative;
-        transform: translateY(100vh);
+        margin-top: 100vh;
         transition: transform 0.5s ease-in-out;
+        overflow: auto;
     }
 
     .scrolled #more-information {
-        transform: translateY(0);
+        transform: translateY(0vh);
+    }
+
+    #end-padding{
+        margin-top:65vh;
+        position: fixed;
+        opacity: 0;
+        height: 35vh;
+        width: 100vw;
+        background: #333333FF;
     }
 
     #arran {
@@ -56,17 +66,18 @@ body {
         position: fixed;
         width: 100vw;
         height: 100vh;
+        filter: blur(3px);
     }
 
     #textHeading {
         order: 1;
-        font-size: xx-large;
+        font-size: 3em;
         width: 8em;
     }
 
     #textBody {
         order: 2;
-        font-size: x-large;
+        font-size: 1.5em;
         width: 25vw;
         padding-top: .2em;
     }
@@ -76,7 +87,64 @@ body {
         padding-top: .2em;
         font-size: x-large;
         opacity: 0;
-        transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease;
+    }
+
+    #container-for-scroll {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+    }
+
+    #scroll {
+        position: fixed;
+        width: 42px;
+        height: 42px;
+        border: 2px solid #dfdfdf;
+        border-radius: 50%;
+        animation: down 1.5s infinite;
+        -webkit-animation: down 1.5s infinite;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 9px;
+            left: 13px;
+            width: 14px;
+            height: 14px;
+            border-left: 2px solid #dfdfdf;
+            border-bottom: 2px solid #dfdfdf;
+            transform: rotate(-45deg);
+        }
+        z-index: 1;
+        order: 4;
+    }
+
+
+    @keyframes down {
+        0% {
+            transform: translate(0);
+        }
+        20% {
+            transform: translateY(15px);
+        }
+        40% {
+            transform: translate(0);
+        }
+    }
+
+    @-webkit-keyframes down {
+        0% {
+            transform: translate(0);
+        }
+        20% {
+            transform: translateY(15px);
+        }
+        40% {
+            transform: translate(0);
+        }
     }
 
     #about-extended {
