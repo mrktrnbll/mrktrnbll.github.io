@@ -153,8 +153,24 @@ body {
         }
     }
 
+    #about-container {
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 0 20px;
+    }
+
+    #profile-pic {
+        height: 256px;
+        width: auto;
+        margin: 0 20px;
+        border: 5px solid lightblue;
+        border-radius: 10px;
+
+    }
+
     #about-extended {
         text-align: justify;
+        margin: 0 20px;
     }
 
     .headers {
