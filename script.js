@@ -1,5 +1,5 @@
 const introHeading = "Hello I'm Mark!"
-const introBody = "I'm a software engineer and final year computing science student at the University of Glasgow! There's nothing here just now, so instead, here's my links!"
+const introBody = "I'm a software engineer and final year Computing Science student at the University of Glasgow! Scroll down to see what I am all about! :)"
 
 async function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 
