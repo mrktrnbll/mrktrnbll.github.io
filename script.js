@@ -1,5 +1,5 @@
 const introHeading = "Hello I'm Mark!"
-const introBody = "I'm a software engineer and final year Computing Science student at the University of Glasgow! Scroll down to see what I am all about! :)"
+const introBody = "I'm a software engineer and final year Computing Science student at the University of Glasgow! Scroll down or hit one of my links to see what I am all about! :)"
 const projectsJSON = [
     {
         "id": 1,

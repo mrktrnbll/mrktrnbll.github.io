@@ -17,7 +17,7 @@ body {
     flex-flow: row wrap;
     justify-content: left;
     width: 100vw;
-    height: 200vh;
+    height: 360vh;
     margin: 0;
     overflow-x: hidden;
 }
