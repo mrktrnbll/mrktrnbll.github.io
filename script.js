@@ -25,7 +25,7 @@ const projectsJSON = [
     {
         "id": 4,
         "name": "BeePomodoro",
-        "demo_url": "https://github.com/mrktrnbll/beepomodorotimer",
+        "demo_url": "https://github.com/mrktrnbll/bee-pomodoro-timer",
         "thumbnail_url": "assets/photos/bee.png",
         "description": "Fun little bee themed pomodoro timer! This was my first ever project and it is... rubbish! It is a reminder of how far I have come and that my efforts pay off - for that reason it is my best project to date."
     },
