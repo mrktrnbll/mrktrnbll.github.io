@@ -1,5 +1,10 @@
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+#projects .contents h3 {
+    margin: 1rem;
 }
 
 p {
@@ -15,11 +20,6 @@ body {
     height: 200vh;
     margin: 0;
     overflow-x: hidden;
-}
-
-#projects {
-    order: 2;
-    flex-flow: column wrap;
 }
 
 @media only screen and (min-width: 768px) {
@@ -41,14 +41,15 @@ body {
         justify-content: center;
         background: #333333FF;
         color: white;
-        height: 90vh;
+        height: 260vh;
         z-index: 4;
         padding: 1em;
         font-size: 2em;
         position: relative;
         margin-top: 100vh;
         transition: transform 0.5s ease-in-out;
-        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
 
     body.scrolled #more-information {
@@ -66,7 +67,7 @@ body {
     }
 
     #arran {
-        content: url(assests/photos/arran.webp);
+        content: url(assets/photos/arran.webp);
         z-index: -100;
         position: fixed;
         width: 100vw;
@@ -168,6 +169,29 @@ body {
 
     }
 
+    #project-header {
+        margin-top: 2em;
+        align-self: center;
+    }
+
+    .container {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-content: center;
+        width: inherit;
+    }
+
+    #projects {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+        justify-content: center;
+        z-index: 4;
+        color: white;
+        width: 100vw;
+    }
+
     #about-extended {
         text-align: justify;
         margin: 0 20px;
@@ -177,13 +201,52 @@ body {
         font-size: xx-large;
         width: 8em;
     }
+
+    #projects {
+        width: 100vw;
+        height: 100vh;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .contents {
+        display: flex;
+        flex-flow: column wrap;
+        width: inherit;
+        justify-content: center;
+    }
+
+    .project {
+        display: flex;
+        flex-flow: column wrap;
+        max-height: 240px;
+        width: auto;
+        margin-bottom: 2em;
+        align-content: center;
+    }
+
+    .project img {
+        max-height: 240px;
+        min-height: 240px;
+        width: auto;
+        border: 5px solid lightblue;
+        border-radius: 10px;
+    }
+
+    .project-description {
+        display: flex;
+        flex-flow: column wrap;
+        height: inherit;
+        text-align: justify;
+        width: 40vw;
+        align-items: center;
+    }
 }
 
 @media only screen and (max-width: 768px) {
 
     body {
         font-family: "VT323";
-        background-image: url(assests/photos/arran_mobile.webp);
+        background-image: url(assets/photos/arran_mobile.webp);
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
@@ -235,84 +298,5 @@ body {
     .headers {
         font-size: xx-large;
         width: 8em;
-    }
-
-
-
-    /* valentine css stuff */
-
-    #valentine {
-        order: 4;
-        display: flex;
-        flex-flow: column wrap;
-        align-content: center;
-    }
-
-    #valentine-gif {
-        padding-top: 20vh;
-        display: flex;
-        flex-flow: row wrap;
-        order: 1;
-        justify-content: center;
-    }
-
-    #valentine-text {
-        padding-top: 0.6em;
-    }
-
-    #valentine-answer {
-        order: 2;
-        padding-top: 3em;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-    }
-
-    #valentine-reply {
-        order: 3;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-    }
-
-    #reply-no {
-        padding-top: 0.6em;
-        opacity: 0;
-    }
-
-    #reply-yes {
-        padding-top: 0.6em;
-        opacity: 0;
-    }
-
-    #button-yes {
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        border: none;
-        border-radius: 5px;
-        margin: 5px;
-        background-color: rgb(235, 98, 98);
-        color: black;
-    }
-    #button-no {
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        border: none;
-        border-radius: 5px;
-        margin: 5px;
-        background-color: rgb(235, 98, 98);
-        color: black;
-    }
-    
-    button:hover {
-        background-color: rgb(235, 98, 98);
-    }
-    
-    button:active {
-        background-color: rgb(235, 98, 98);
     }
 }

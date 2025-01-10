@@ -1,7 +1,7 @@
 @media only screen and (min-width: 992px) {
     body {
         font-family: "VT323";
-        background-image: url("assests/photos/arran.jpg");
+        background-image: url("../assets/photos/arran.webp");
         background-color: #3a3a3a;
         background-repeat: no-repeat;
         background-size: auto;
@@ -10,7 +10,7 @@
 
     .landing-bg {
         position: absolute;
-        /* content: url(assests/photos/arran.jpg); */
+        /* content: url(assets/photos/arran.jpg); */
         display: block;
         left: auto;
         right: auto;
@@ -103,7 +103,7 @@
 @media only screen and (max-width: 992px) {
     body {
         font-family: "VT323";
-        background-image: url("assests/photos/arran-mobile.jpg");
+        background-image: url("../assets/photos/arran_mobile.webp");
         background-color: #3a3a3a;
         background-repeat: no-repeat;
         background-size: auto;
@@ -112,7 +112,7 @@
     
     .landing-bg {
         position: absolute;
-        content: url(assests/photos/arran-mobile.jpg);
+        content: url(../assets/photos/arran_mobile.webp);
         display: block;
         left: auto;
         right: auto;
