@@ -66,10 +66,12 @@ document.addEventListener("scroll", () => {
         document.body.classList.add("scrolled");
         document.getElementById("end-padding").style.opacity = 1;
         document.getElementById("end-padding").style.zIndex = 3;
+        document.getElementById("introduction").style.zIndex = 1;
     } else {
         document.body.classList.remove("scrolled");
         document.getElementById("end-padding").style.opacity = 0;
         document.getElementById("end-padding").style.zIndex = 1;
+        document.getElementById("introduction").style.zIndex = 1000;
     }
 });
 
