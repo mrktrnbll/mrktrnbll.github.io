@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script>
+      // controlls button selection operations
+
+      var click_count = 0;
+      function experimentCountdown(selectedText, time = 3, callback) {
+        if (time >= 0) {
+          selectedText.setAttribute("value", "Get ready, starting in: " + time);
+          setTimeout(() => {
+            experimentCountdown(selectedText, time - 1, callback);
+          }, 1000);
+        } else {
+          selectedText.setAttribute("value", "Whack the mole!");
+          if (callback) callback();
+        }
+      }
+
+
+      const getListOfButtons = () => {
+        const buttons = document.querySelectorAll('[mixin="select-button"]');
+        return Array.from(buttons);
+      }
+      
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+      
+      function getRandomButton(buttons) {
+        return buttons[getRandomInt(buttons.length)];
+      }
+      
+      
+      // start experiment button - this will start the "to click" serious
+      // users will then have to kind of "whack a mole" and will be timed
+      AFRAME.registerComponent("start-experiment", {
+
+
+        schema: {
+          height: { default: "1" },
+          width: { default: "1" },
+          color: { default: "green" },
+          hover: { default: "purple" },
+          click: { default: "#951272" },
+        },
+
+        init: function () {
+          let data = this.data;
+          let element = this.el;
+          let selectedText = document.querySelector("#text");
+
+          element.addEventListener("mouseenter", function () {
+            element.setAttribute("color", data.hover);
+          });
+
+          element.addEventListener("mouseleave", function () {
+            element.setAttribute("color", data.color);
+          });
+
+          element.addEventListener("click", function() {
+            console.log("pressed");
+            element.setAttribute("color", "red");
+
+            experimentCountdown(selectedText, 3, () => {
+              let buttonList = getListOfButtons();
+
+              function chainButtonChange(iteration, maxIterations = 10, startTime) {
+                if (iteration >= maxIterations) {
+                  const endTime = performance.now();
+                  const displayTime = Math.floor(endTime - startTime) / 1000;
+                  selectedText.setAttribute("value", "Experiment done! You clocked a time of " + displayTime.toString() + " seconds");
+                  return;
+                }
+                let randomButton = getRandomButton(buttonList);
+                randomButton.setAttribute("color", "red");
+                randomButton.dataset.active = "true";
+
+                let handler = function () {
+                  randomButton.dataset.active = "false";
+                  randomButton.removeEventListener("click", handler);
+                  chainButtonChange(iteration + 1, maxIterations, startTime);
+                };
+
+                randomButton.addEventListener("click", handler);
+              }
+
+              
+              const startTime = performance.now()
+              chainButtonChange(0, 10, startTime);
+              
+            });
+          });
+        },
+      });
+
+      AFRAME.registerComponent("button", {
+        schema: {
+          height: { default: "1" },
+          width: { default: "1" },
+          color: { default: "green" },
+          hover: { default: "purple" },
+          click: { default: "#951272" },
+          item_id: { default: "0" },
+        },
+
+        init: function () {
+          var data = this.data;
+          var element = this.el;
+
+          element.dataset.active = "false";
+
+          element.addEventListener("mouseenter", function () {
+            if (element.dataset.active !== "true") {
+              element.setAttribute("color", data.hover);
+            }
+          });
+
+          element.addEventListener("mouseleave", function () {
+            if (element.dataset.active !== "true") {
+              element.setAttribute("color", data.color);
+            }
+          });
+
+          element.addEventListener("click", function () {
+            element.dataset.active = "false";
+            ++click_count;
+            element.setAttribute("color", data.click);
+          });
+        },
+      });
+    </script>
+    <script>
+      function normalizeAngle(angle) {
+        return Math.atan2(Math.sin(angle), Math.cos(angle));
+      }
+      
+      var lookControls = AFRAME.components["look-controls"];
+      var lookControlsComponent = lookControls.Component;
+
+      lookControlsComponent.prototype.updateMagicWindowOrientation = function () {
+        if (this.magicWindowControls && this.magicWindowControls.enabled) {
+          this.magicWindowControls.update();
+          this.magicWindowAbsoluteEuler.setFromQuaternion(this.magicWindowObject.quaternion, 'YXZ');
+
+          if (this.previousMagicWindowYaw === undefined) {
+            this.previousMagicWindowYaw = this.magicWindowAbsoluteEuler.y;
+          }
+
+          var rawDeltaYaw = this.magicWindowAbsoluteEuler.y - this.previousMagicWindowYaw;
+      
+          rawDeltaYaw = normalizeAngle(rawDeltaYaw);
+          this.previousMagicWindowYaw = this.magicWindowAbsoluteEuler.y;
+
+          var yawSensitivity = 0.5;
+
+          if (this.scaledDeviceYaw === undefined) {
+            this.scaledDeviceYaw = 0;
+          }
+
+          this.scaledDeviceYaw += rawDeltaYaw * yawSensitivity;
+
+          this.magicWindowDeltaEuler.x = this.magicWindowAbsoluteEuler.x;
+          this.magicWindowDeltaEuler.y = this.scaledDeviceYaw;
+          this.magicWindowDeltaEuler.z = this.magicWindowAbsoluteEuler.z;
+        }
+      };
+
+      var originalUpdateOrientation = AFRAME.components["look-controls"].Component.prototype.updateOrientation;
+
+      AFRAME.components["look-controls"].Component.prototype.updateOrientation = function () {
+        var object3D = this.el.object3D;
+        var pitchObject = this.pitchObject;
+        var yawObject = this.yawObject;
+        var sceneEl = this.el.sceneEl;
+
+        if ((sceneEl.is('vr-mode') || sceneEl.is('ar-mode')) && sceneEl.checkHeadsetConnected()) {
+          return;
+        }
+
+        this.updateMagicWindowOrientation();
+
+        var yawSensitivity = 0.5;
+        var pitchSensitivity = 0.5;
+
+        object3D.rotation.x = (this.magicWindowDeltaEuler.x * pitchSensitivity) + pitchObject.rotation.x;
+        object3D.rotation.y = (this.magicWindowDeltaEuler.y * yawSensitivity) + yawObject.rotation.y;
+        object3D.rotation.z = this.magicWindowDeltaEuler.z;
+      };
+    </script>
+    <script>
+      
+      var lookControls = AFRAME.components["look-controls"],
+      lookControlsComponent = lookControls.Component;
+
+      lookControlsComponent.prototype.onTouchMove = function (evt) {
+        var canvas = this.el.sceneEl.canvas;
+        var deltaX, deltaY;
+        var pitchObject = this.pitchObject;
+        var yawObject = this.yawObject;
+
+        if (!this.touchStarted || !this.data.touchEnabled) { return; }
+
+        deltaY = 2 * Math.PI * (evt.touches[0].pageX - this.touchStart.x) / canvas.clientWidth;
+        deltaX = 2 * Math.PI * (evt.touches[0].pageY - this.touchStart.y) / canvas.clientHeight;
+
+        yawObject.rotation.y -= deltaY * 0.5
+        pitchObject.rotation.x -= deltaX * 0.5;
+        this.touchStart = {
+          x: evt.touches[0].pageX,
+          y: evt.touches[0].pageY
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-mixin
+          id="select-button"
+          geometry="width: 2; height: 1;"
+          scale="0.1 0.1 0.1"
+          material="color: green;"
+          text="align: center; anchor: center; baseline: center; color: white; wrap-count: 15;"
+        ></a-mixin>
+      </a-assets>
+
+      <a-entity camera look-controls >
+        <a-entity
+          animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 100; from: 0.1 0.1 0.1; to: 1 1 1"
+          animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 600; from: 1 1 1; to: 0.1 0.1 0.1"
+          animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 100; to: 1 1 1"
+          cursor="fuse: true; fuseTimeout: 600"
+          material="color: black; shader: flat; opacity: 0.5;"
+          position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01"
+        >
+        </a-entity>
+      </a-entity>
+
+      <a-plane
+        start-experiment
+        geometry="width: 0.4; height: 0.1;"
+        position="0 -0.3 -1"
+        material="color: blue;"
+      >
+        <a-text scale="0.2 0.2 0.2" value="Start Experiment" align="center"></a-text>
+      </a-plane>
+      
+      <a-text
+        id="text"
+        value="Press start when ready!"
+        position="0 2 -5"
+        scale="2 2 1"
+        color="black"
+        align="center"
+      ></a-text>
+
+      <a-circle
+        mixin="select-button"
+        position="-1.8  0.75 -8"
+        button="item_id: 1"
+      ></a-circle>
+      <a-circle
+        mixin="select-button"
+        position="0  0.75 -8"
+        button="item_id: 2"
+      ></a-circle>
+      <a-circle
+        mixin="select-button"
+        position="1.8 0.75 -8"
+        button="item_id: 3"
+      ></a-circle>
+      <a-circle
+        mixin="select-button"
+        position="-2.7 0 -8"
+        button="item_id: 4"
+      ></a-circle>
+      <a-circle
+        mixin="select-button"
+        position="-0.9 0 -8"
+        button="item_id: 5"
+      ></a-circle>
+      <a-circle
+        mixin="select-button"
+        position="0.9 0 -8"
+        button="item_id: 6"
+      ></a-circle>
+      <a-circle
+        mixin="select-button"
+        position="2.7 0 -8"
+        button="item_id: 7"
+      ></a-circle>
+      <a-circle
+        mixin="select-button"
+        position="-1.8 -0.75 -8"
+        button="item_id: 8"
+      ></a-circle>
+      <a-circle
+        mixin="select-button"
+        position="0 -0.75 -8"
+        button="item_id: 9"
+      ></a-circle>
+      <a-circle
+        mixin="select-button"
+        position="1.8 -0.75 -8"
+        button="item_id: 10"
+      ></a-circle>
+    </a-scene>
+  </body>
+</html>
