@@ -189,8 +189,8 @@
 
         this.updateMagicWindowOrientation();
 
-        var yawSensitivity = 0.5;
-        var pitchSensitivity = 0.5;
+        var yawSensitivity = 0.4;
+        var pitchSensitivity = 0.4;
 
         object3D.rotation.x = (this.magicWindowDeltaEuler.x * pitchSensitivity) + pitchObject.rotation.x;
         object3D.rotation.y = (this.magicWindowDeltaEuler.y * yawSensitivity) + yawObject.rotation.y;

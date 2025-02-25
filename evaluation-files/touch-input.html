@@ -140,6 +140,64 @@
       });
     </script>
     <script>
+      function normalizeAngle(angle) {
+        return Math.atan2(Math.sin(angle), Math.cos(angle));
+      }
+      
+      var lookControls = AFRAME.components["look-controls"];
+      var lookControlsComponent = lookControls.Component;
+
+      lookControlsComponent.prototype.updateMagicWindowOrientation = function () {
+        if (this.magicWindowControls && this.magicWindowControls.enabled) {
+          this.magicWindowControls.update();
+          this.magicWindowAbsoluteEuler.setFromQuaternion(this.magicWindowObject.quaternion, 'YXZ');
+
+          if (this.previousMagicWindowYaw === undefined) {
+            this.previousMagicWindowYaw = this.magicWindowAbsoluteEuler.y;
+          }
+
+          var rawDeltaYaw = this.magicWindowAbsoluteEuler.y - this.previousMagicWindowYaw;
+      
+          rawDeltaYaw = normalizeAngle(rawDeltaYaw);
+          this.previousMagicWindowYaw = this.magicWindowAbsoluteEuler.y;
+
+          var yawSensitivity = 0.5;
+
+          if (this.scaledDeviceYaw === undefined) {
+            this.scaledDeviceYaw = 0;
+          }
+
+          this.scaledDeviceYaw += rawDeltaYaw * yawSensitivity;
+
+          this.magicWindowDeltaEuler.x = this.magicWindowAbsoluteEuler.x;
+          this.magicWindowDeltaEuler.y = this.scaledDeviceYaw;
+          this.magicWindowDeltaEuler.z = this.magicWindowAbsoluteEuler.z;
+        }
+      };
+
+      var originalUpdateOrientation = AFRAME.components["look-controls"].Component.prototype.updateOrientation;
+
+      AFRAME.components["look-controls"].Component.prototype.updateOrientation = function () {
+        var object3D = this.el.object3D;
+        var pitchObject = this.pitchObject;
+        var yawObject = this.yawObject;
+        var sceneEl = this.el.sceneEl;
+
+        if ((sceneEl.is('vr-mode') || sceneEl.is('ar-mode')) && sceneEl.checkHeadsetConnected()) {
+          return;
+        }
+
+        this.updateMagicWindowOrientation();
+
+        var yawSensitivity = 0;
+        var pitchSensitivity = 0;
+
+        object3D.rotation.x = (this.magicWindowDeltaEuler.x * pitchSensitivity) + pitchObject.rotation.x;
+        object3D.rotation.y = (this.magicWindowDeltaEuler.y * yawSensitivity) + yawObject.rotation.y;
+        object3D.rotation.z = this.magicWindowDeltaEuler.z;
+      };
+    </script>
+    <script>
       
       var lookControls = AFRAME.components["look-controls"],
       lookControlsComponent = lookControls.Component;
