@@ -6,6 +6,7 @@
     <script>
       // controlls button selection operations
 
+      let previous_button = 100;
       var click_count = 0;
       function experimentCountdown(selectedText, time = 3, callback) {
         if (time >= 0) {
@@ -26,7 +27,13 @@
       }
       
       function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
+        let new_button = Math.floor(Math.random() * max);
+        if (new_button == previous_button) {
+          return getRandomInt(max)
+        } else {
+          previous_button = new_button
+          return new_button
+        }
       }
       
       function getRandomButton(buttons) {
