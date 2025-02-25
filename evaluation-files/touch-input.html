@@ -145,8 +145,8 @@
 
         if (!this.touchStarted || !this.data.touchEnabled) { return; }
 
-        deltaY = 2 * Math.PI * (evt.touches[0].pageX - this.touchStart.x) / canvas.clientWidth;
-        deltaX = 2 * Math.PI * (evt.touches[0].pageY - this.touchStart.y) / canvas.clientHeight;
+        deltaY = 1 * Math.PI * (evt.touches[0].pageX - this.touchStart.x) / canvas.clientWidth;
+        deltaX = 1 * Math.PI * (evt.touches[0].pageY - this.touchStart.y) / canvas.clientHeight;
 
         yawObject.rotation.y -= deltaY;
         pitchObject.rotation.x -= deltaX;
