@@ -181,6 +181,7 @@
         var object3D = this.el.object3D;
         var pitchObject = this.pitchObject;
         var yawObject = this.yawObject;
+        var rollObject = this.rollObject;
         var sceneEl = this.el.sceneEl;
 
         if ((sceneEl.is('vr-mode') || sceneEl.is('ar-mode')) && sceneEl.checkHeadsetConnected()) {
@@ -191,10 +192,11 @@
 
         var yawSensitivity = 0;
         var pitchSensitivity = 0;
+        var zSensitivity = 0;
 
         object3D.rotation.x = (this.magicWindowDeltaEuler.x * pitchSensitivity) + pitchObject.rotation.x;
         object3D.rotation.y = (this.magicWindowDeltaEuler.y * yawSensitivity) + yawObject.rotation.y;
-        object3D.rotation.z = this.magicWindowDeltaEuler.z;
+        object3D.rotation.z = (this.magicWindowDeltaEuler.z * zSensitivity) + rollObject.rotation.z;
       };
     </script>
     <script>
