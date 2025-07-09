@@ -1,5 +1,5 @@
 const introHeading = "Hello I'm Mark!"
-const introBody = "I'm a software engineer and final year Computing Science student at the University of Glasgow! Scroll down or hit one of my links to see what I am all about! :)"
+const introBody = "I'm a software engineer and computing science graduate of the University of Glasgow! Scroll down or hit one of my links to see what I am all about! :)"
 const projectsJSON = [
     {
         "id": 1,
@@ -58,58 +58,41 @@ const typeCharacters = async () => {
     links[0].style.opacity = 1;
 }
 
-document.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    const introductionHeight = document.getElementById("introduction").offsetHeight;
+// const projects = document.querySelector("#more-information");
+// const renderProjects = async () => {
+//     try {
+//         let item = "";
+//         for (let i = 0; i < projectsJSON.length; i++) {
+//             if (i % 2 === 1) {
+//                 item += `
+//                 <div class="project">
+//                     <div style="margin-right: 1em;" class="project-description">
+//                         <h3>${projectsJSON[i].name}</h3>
+//                         <p>${projectsJSON[i].description}</p>
+//                     </div>
+//                     <a href=${projectsJSON[i].demo_url}>
+//                         <img src=${projectsJSON[i].thumbnail_url} alt=${projectsJSON[i].name}/>
+//                     </a>
+//                 </div>`
+//             } else {
+//                 item += `
+//                 <div class="project">
+//                     <a href=${projectsJSON[i].demo_url}>
+//                         <img src=${projectsJSON[i].thumbnail_url} alt=${projectsJSON[i].name}/>
+//                     </a>
+//                     <div class="project-description" style="margin-left: 1em;">
+//                         <h3>${projectsJSON[i].name}</h3>
+//                         <p>${projectsJSON[i].description}</p>
+//                     </div>
+//                 </div>`
+//             }
+//         }
+//         projects.innerHTML = item;
+//     } catch (error) {
+//         console.log("projects error ===>>>", error);
+//     }
+// };
 
-    if (scrollY >= introductionHeight / 2) {
-        document.body.classList.add("scrolled");
-        document.getElementById("end-padding").style.opacity = 1;
-        document.getElementById("end-padding").style.zIndex = 3;
-        document.getElementById("introduction").style.zIndex = 1;
-    } else {
-        document.body.classList.remove("scrolled");
-        document.getElementById("end-padding").style.opacity = 0;
-        document.getElementById("end-padding").style.zIndex = 1;
-        document.getElementById("introduction").style.zIndex = 1000;
-    }
-});
-
-const projects = document.querySelector("#projects .contents");
-const renderProjects = async () => {
-    try {
-        let item = "";
-        for (let i = 0; i < projectsJSON.length; i++) {
-            if (i % 2 === 1) {
-                item += `
-                <div class="project">
-                    <div style="margin-right: 1em;" class="project-description">
-                        <h3>${projectsJSON[i].name}</h3>
-                        <p>${projectsJSON[i].description}</p>
-                    </div>
-                    <a href=${projectsJSON[i].demo_url}>
-                        <img src=${projectsJSON[i].thumbnail_url} alt=${projectsJSON[i].name}/>
-                    </a>
-                </div>`
-            } else {
-                item += `
-                <div class="project">
-                    <a href=${projectsJSON[i].demo_url}>
-                        <img src=${projectsJSON[i].thumbnail_url} alt=${projectsJSON[i].name}/>
-                    </a>
-                    <div class="project-description" style="margin-left: 1em;">
-                        <h3>${projectsJSON[i].name}</h3>
-                        <p>${projectsJSON[i].description}</p>
-                    </div>
-                </div>`
-            }
-        }
-        projects.innerHTML = item;
-    } catch (error) {
-        console.log("projects error ===>>>", error);
-    }
-};
-
-window.addEventListener("load", () => {
-    renderProjects()
-})
+// window.addEventListener("load", () => {
+//     renderProjects()
+// })

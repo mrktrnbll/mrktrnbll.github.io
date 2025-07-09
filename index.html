@@ -11,39 +11,40 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
-<body onload="typeCharacters()">
-    <img id="arran" alt="arran-background">
-    <div id="introduction">
-        <p id="textHeading"></p>
-        <p id="textBody"></p>
-        <div class="links">
-            <a href="https://github.com/mrktrnbll">github</a>
-            <a href="https://www.linkedin.com/in/mrktrnbll/">linkedIn</a>
-            <a href="https://www.instagram.com/mrktrnbll15/">instagram</a>
-        </div>
-    </div>
-    <div id="container-for-scroll">
-        <a href="#more-information" style="width: 46px; height: 46px;position: fixed; margin-top: 92vh;">
-            <div id="scroll"></div>
-        </a>
-    </div>
-    <div id="more-information">
-        <h2>Who Am I?</h2>
-        <div id="about-container">
-            <img id="profile-pic" src="assets/photos/profile.webp" alt="profile-pic">
-            <p id="about-extended">
-                Hello, my name is Mark Turnbull, and I am a Software Engineer passionate about building software that is both functional and highly robust. I am currently studying Computer Science at the University of Glasgow and have experience in full-stack web development, machine and deep learning, and low-level Rust programming. Above all, I am a problem solver who thrives on tackling complex challenges and crafting impactful digital solutions. While I have specific expertise in various technologies, I'm quick to learn and adapt, so don't let the lack of a perfect match in experience hold you back - I'm here to solve problems, no matter the tools or domain.
-            </p>
-        </div>
-        <div id="projects">
-            <div class="container">
-                <h2 id="project-header">My Projects</h2>
+<body id="main-body-wrapper" onload="typeCharacters()">
+    <div id="first-page">
+        <img id="arran" alt="arran-background">
+        <div id="introduction">
+            <p id="textHeading"></p>
+            <p id="textBody"></p>
+            <div class="links">
+                <a href="https://github.com/mrktrnbll">github</a>
+                <a href="https://www.linkedin.com/in/mrktrnbll/">linkedIn</a>
+                <a href="https://www.instagram.com/mrktrnbll15/">instagram</a>
             </div>
-            <div class="contents"></div>
         </div>
     </div>
 
-    <div id="end-padding"></div>
+
+    <div id="container-for-scroll">
+        <a style="width: 46px; height: 46px; margin-top: 92vh;">
+            <div id="scroll"></div>
+        </a>
+    </div>
+
+    <div id="more-information">
+        <div id="about-container">
+            <img id="profile-pic" src="assets/photos/profile.webp" alt="profile-pic">
+            <div id="about-container-text">
+                <h2 class="about-heading">More On Me!</h2>
+                <p id="about-extended">
+                    Hey, I'm Mark as software engineer with a passion for web development, data science , AI and Machine Learning.
+                    I love general solutions and find the technicality of proposing systems that can solve general problems as my creative outlet.
+                </p>
+            </div>
+        </div>
+    </div>
+
     
     <script src="script.js"></script>
 </body>

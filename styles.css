@@ -1,302 +1,334 @@
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-
-#projects .contents h3 {
-    margin: 1rem;
-}
-
-p {
-    margin: 0;
-}
-
 body {
     font-family: "VT323";
     display: flex;
     flex-flow: row wrap;
     justify-content: left;
     width: 100vw;
-    height: 360vh;
+    height: 100vh;
     margin: 0;
-    overflow-x: hidden;
+    overscroll-behavior: none;
 }
 
-@media only screen and (min-width: 768px) {
+p {
+    margin: 0;
+}
 
-    #introduction {
-        padding-top: 6vh;
-        padding-left: 8vw;
-        height: 100vh;
-        display: flex;
-        flex-flow: column wrap;
-        position: fixed;
-        z-index: 1000;
-    }
+svg {
+    transform: rotate(180deg);
+}
 
-    #more-information {
-        display: flex;
-        flex-flow: row wrap;
-        align-content: flex-start;
-        justify-content: center;
-        background: #333333FF;
-        color: white;
-        height: 260vh;
-        z-index: 4;
-        padding: 1em;
-        font-size: 2em;
-        position: relative;
-        margin-top: 100vh;
-        transition: transform 0.5s ease-in-out;
-        overflow-x: hidden;
-        overflow-y: hidden;
-    }
+.about-heading {
+    font-size: 2em;
+    width: 8em;
+    margin: 0 0 1rem;
+}
 
-    body.scrolled #more-information {
-        transform: translateY(0);
-    }
 
-    #end-padding{
-        opacity: 0;
-        margin-top:65vh;
-        position: fixed;
-        height: 35vh;
-        width: 100vw;
-        background: #333333FF;
-        z-index: 1;
-    }
+#main-body-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
 
-    #arran {
-        content: url(assets/photos/arran.webp);
-        z-index: -100;
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        filter: blur(3px);
-    }
+#first-page {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
 
-    #textHeading {
-        order: 1;
-        font-size: 3em;
-        width: 8em;
-    }
+/* background image arran */
+#arran {
+    content: url(assets/photos/arran.webp);
+    z-index: -100;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    /*overflow: hidden;*/
+}
 
+/* correctly positions information on mobile and web */
+#introduction {
+    padding-top: 6vh;
+    padding-left: 8vw;
+    display: flex;
+    flex-flow: column wrap;
+    position: absolute;
+    z-index: 1;
+}
+
+#textHeading {
+    order: 1;
+    font-size: 3em;
+    width: 8em;
+}
+
+#textBody {
+    order: 2;
+    font-size: 1.5em;
+    width: 25vw;
+    padding-top: .2em;
+    text-align: justify;
+}
+
+#more-information {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    justify-content: center;
+    background: #333333FF;
+    color: white;
+    z-index: 2;
+    font-size: 2em;
+    margin-top: 100vh;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#more-information #projects img {
+    aspect-ratio: 1 / 1;
+    width: 200px;
+    height: 200px;
+}
+
+#about-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: inherit;
+    padding: 5rem;
+    justify-content: center;
+}
+
+#about-container-text {
+    display: flex;
+    flex-flow: row wrap;
+    width: 50vw;
+    padding-left: 2rem;
+    align-content: flex-start;
+}
+
+#profile-pic {
+    height: 500px;
+    border-radius: 10px;
+}
+
+#about-extended {
+    font-size: 2rem;
+    text-align: justify;
+}
+
+.links {
+    order: 3;
+    padding-top: .2em;
+    font-size: x-large;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+@media only screen and (max-width: 600px) {
     #textBody {
         order: 2;
         font-size: 1.5em;
-        width: 25vw;
+        width: 80vw;
         padding-top: .2em;
         text-align: justify;
     }
 
-    .links {
-        order: 3;
-        padding-top: .2em;
-        font-size: x-large;
-        opacity: 0;
-        transition: opacity 1s ease;
-    }
-
-    #container-for-scroll {
-        position: fixed;
-        display: flex;
-        justify-content: center;
-        width: 100vw;
-        height: 100vh;
-        z-index: 2;
-    }
-
-    #scroll {
-        position: fixed;
-        width: 42px;
-        height: 42px;
-        border: 2px solid #dfdfdf;
-        border-radius: 50%;
-        animation: down 1.5s infinite;
-        -webkit-animation: down 1.5s infinite;
-        &::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: 13px;
-            width: 14px;
-            height: 14px;
-            border-left: 2px solid #dfdfdf;
-            border-bottom: 2px solid #dfdfdf;
-            transform: rotate(135deg);
-        }
-        z-index: 1;
-        order: 4;
-    }
-
-
-    @keyframes down {
-        0% {
-            transform: translate(0);
-        }
-        20% {
-            transform: translateY(-15px);
-        }
-        40% {
-            transform: translate(0);
-        }
-    }
-
-    @-webkit-keyframes down {
-        0% {
-            transform: translate(0);
-        }
-        20% {
-            transform: translateY(-15px);
-        }
-        40% {
-            transform: translate(0);
-        }
-    }
-
-    #about-container {
-        display: flex;
-        flex-flow: row nowrap;
-        margin: 0 20px;
-    }
-
-    #profile-pic {
-        height: 256px;
-        width: auto;
-        margin: 0 20px;
-        border: 5px solid lightblue;
-        border-radius: 10px;
-
-    }
-
-    #project-header {
-        margin-top: 2em;
-        align-self: center;
-    }
-
-    .container {
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
-        align-content: center;
-        width: inherit;
-    }
-
-    #projects {
-        display: flex;
-        flex-flow: row wrap;
-        align-content: flex-start;
-        justify-content: center;
-        z-index: 4;
-        color: white;
-        width: 100vw;
-    }
-
-    #about-extended {
-        text-align: justify;
-        margin: 0 20px;
-    }
-
-    .headers {
-        font-size: xx-large;
-        width: 8em;
-    }
-
-    #projects {
-        width: 100vw;
-        height: 100vh;
-        transition: all 0.4s ease-in-out;
-    }
-
-    .contents {
-        display: flex;
-        flex-flow: column wrap;
-        width: inherit;
-        justify-content: center;
-    }
-
-    .project {
-        display: flex;
-        flex-flow: column wrap;
-        max-height: 240px;
-        width: auto;
-        margin-bottom: 2em;
-        align-content: center;
-    }
-
-    .project img {
-        max-height: 240px;
-        min-height: 240px;
-        width: auto;
-        border: 5px solid lightblue;
-        border-radius: 10px;
-    }
-
-    .project-description {
-        display: flex;
-        flex-flow: column wrap;
-        height: inherit;
-        text-align: justify;
-        width: 40vw;
-        align-items: center;
+    #more-information img {
+        aspect-ratio: 1 / 1;
+        width: 150px;
+        height: 150px;
     }
 }
 
-@media only screen and (max-width: 768px) {
+#container-for-scroll {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+}
 
-    body {
-        font-family: "VT323";
-        background-image: url(assets/photos/arran_mobile.webp);
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: left;
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
+#scroll {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    animation: down 1.5s infinite;
+    -webkit-animation: down 1.5s infinite;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: 13px;
+        width: 14px;
+        height: 14px;
+        border-left: 2px solid #ffffff;
+        border-bottom: 2px solid #ffffff;
+        transform: rotate(135deg);
     }
+    z-index: 1;
+}
 
-    #introduction {
-        z-index: 2;
-        order: 1;
-        padding-top: 6vh;
-        padding-left: 4vw;
-        height: 30vh;
-        display: flex;
-        flex-flow: column wrap;
-        font-size: 3em;
+@keyframes down {
+    0% {
+        transform: translate(0);
     }
-
-    #textHeading {
-        order: 1;
-        font-size: xx-large;
-        width: 8em;
+    20% {
+        transform: translateY(-15px);
     }
-
-    #textBody {
-        order: 2;
-        font-size: x-large;
-        width: 90vw;
-        padding-top: .2em;
-    }
-
-    .links {
-        order: 3;
-        padding-top: .2em;
-        font-size: x-large;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
-
-    #about-extended {
-        order: 4;
-        padding-top: 60vh;
-        font-size: small;
-    }
-
-    .headers {
-        font-size: xx-large;
-        width: 8em;
+    40% {
+        transform: translate(0);
     }
 }
+@-webkit-keyframes down {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translateY(-15px);
+    }
+    40% {
+        transform: translate(0);
+    }
+}
+
+/*    #about-container {*/
+/*        display: flex;*/
+/*        flex-flow: row nowrap;*/
+/*        margin: 0 20px;*/
+/*    }*/
+
+/*    }*/
+
+/*    #project-header {*/
+/*        margin-top: 2em;*/
+/*        align-self: center;*/
+/*    }*/
+
+/*    .container {*/
+/*        display: flex;*/
+/*        flex-flow: column wrap;*/
+/*        justify-content: center;*/
+/*        align-content: center;*/
+/*        width: inherit;*/
+/*    }*/
+
+/*    #projects {*/
+/*        display: flex;*/
+/*        flex-flow: row wrap;*/
+/*        align-content: flex-start;*/
+/*        justify-content: center;*/
+/*        z-index: 4;*/
+/*        color: white;*/
+/*        width: 100vw;*/
+/*    }*/
+
+/*    #about-extended {*/
+/*        text-align: justify;*/
+/*        margin: 0 20px;*/
+/*    }*/
+
+/*    .headers {*/
+/*        font-size: xx-large;*/
+/*        width: 8em;*/
+/*    }*/
+
+/*    #projects {*/
+/*        width: 100vw;*/
+/*        height: 100vh;*/
+/*        transition: all 0.4s ease-in-out;*/
+/*    }*/
+
+/*    .contents {*/
+/*        display: flex;*/
+/*        flex-flow: column wrap;*/
+/*        width: inherit;*/
+/*        justify-content: center;*/
+/*    }*/
+
+/*    .project {*/
+/*        display: flex;*/
+/*        flex-flow: column wrap;*/
+/*        max-height: 240px;*/
+/*        width: auto;*/
+/*        margin-bottom: 2em;*/
+/*        align-content: center;*/
+/*    }*/
+
+/*    .project img {*/
+/*        max-height: 240px;*/
+/*        min-height: 240px;*/
+/*        width: auto;*/
+/*        border: 5px solid lightblue;*/
+/*        border-radius: 10px;*/
+/*    }*/
+
+/*    .project-description {*/
+/*        display: flex;*/
+/*        flex-flow: column wrap;*/
+/*        height: inherit;*/
+/*        text-align: justify;*/
+/*        width: 40vw;*/
+/*        align-items: center;*/
+/*    }*/
+/*}*/
+
+/*@media only screen and (max-width: 768px) {*/
+
+/*    body {*/
+/*        font-family: "VT323";*/
+/*        background-image: url(assets/photos/arran_mobile.webp);*/
+/*        background-repeat: no-repeat;*/
+/*        background-size: cover;*/
+/*        display: flex;*/
+/*        flex-flow: column wrap;*/
+/*        justify-content: left;*/
+/*        width: 100vw;*/
+/*        height: 100vh;*/
+/*        margin: 0;*/
+/*    }*/
+
+/*    #introduction {*/
+/*        z-index: 2;*/
+/*        order: 1;*/
+/*        padding-top: 6vh;*/
+/*        padding-left: 4vw;*/
+/*        height: 30vh;*/
+/*        display: flex;*/
+/*        flex-flow: column wrap;*/
+/*        font-size: 3em;*/
+/*    }*/
+
+/*    #textHeading {*/
+/*        order: 1;*/
+/*        font-size: xx-large;*/
+/*        width: 8em;*/
+/*    }*/
+
+/*    #textBody {*/
+/*        order: 2;*/
+/*        font-size: x-large;*/
+/*        width: 90vw;*/
+/*        padding-top: .2em;*/
+/*    }*/
+
+/*    .links {*/
+/*        order: 3;*/
+/*        padding-top: .2em;*/
+/*        font-size: x-large;*/
+/*        opacity: 0;*/
+/*        transition: opacity 1s ease-in-out;*/
+/*    }*/
+
+/*    #about-extended {*/
+/*        order: 4;*/
+/*        padding-top: 60vh;*/
+/*        font-size: small;*/
+/*    }*/
+
+/*    .headers {*/
+/*        font-size: xx-large;*/
+/*        width: 8em;*/
+/*    }*/
