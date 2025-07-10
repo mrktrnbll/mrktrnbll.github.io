@@ -18,7 +18,7 @@ svg {
 }
 
 .about-heading {
-    font-size: 2em;
+    font-size: 3rem;
     width: 8em;
     margin: 0 0 1rem;
 }
@@ -29,23 +29,23 @@ svg {
     flex-flow: row wrap;
 }
 
+
+/* landing page starts */
+
 #first-page {
     width: 100vw;
     height: 100vh;
     position: absolute;
 }
 
-/* background image arran */
 #arran {
     content: url(assets/photos/arran.webp);
     z-index: -100;
     width: 100vw;
     height: 100vh;
     position: fixed;
-    /*overflow: hidden;*/
 }
 
-/* correctly positions information on mobile and web */
 #introduction {
     padding-top: 6vh;
     padding-left: 8vw;
@@ -69,6 +69,20 @@ svg {
     text-align: justify;
 }
 
+.links {
+    order: 3;
+    padding-top: .2em;
+    font-size: x-large;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 10;
+}
+
+/* landing page ends */
+
+
+/* scrolled up about section starts */
+
 #more-information {
     display: flex;
     flex-flow: row wrap;
@@ -80,7 +94,8 @@ svg {
     font-size: 2em;
     margin-top: 100vh;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     overflow: hidden;
 }
 
@@ -101,7 +116,7 @@ svg {
 #about-container-text {
     display: flex;
     flex-flow: row wrap;
-    width: 50vw;
+    width: 40vw;
     padding-left: 2rem;
     align-content: flex-start;
 }
@@ -112,17 +127,166 @@ svg {
 }
 
 #about-extended {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: justify;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #adb759
 }
 
-.links {
-    order: 3;
-    padding-top: .2em;
-    font-size: x-large;
-    opacity: 0;
-    transition: opacity 1s ease;
+#tab-titles {
+    display: flex;
+    margin: 1rem 0 1rem;
 }
+
+.tab-links {
+    margin-right: 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-links::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: #adb759;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: width 0.3s ease-in;
+}
+
+.tab-links.active-link::after {
+    width: 50%;
+}
+
+.tab-contents ul {
+    padding: 0;
+    margin: 0;
+}
+
+.tab-contents ul li {
+    list-style: none;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.tab-contents ul li span {
+    color: #939c4f;
+    font-size: 2rem;
+}
+
+.tab-contents {
+    display: none;
+}
+
+.tab-contents.active-tab {
+    display: block
+}
+
+#wave-divider {
+    width: 100vw;
+    height: 50px;
+    display: block;
+}
+
+#projects-container {
+    display: flex;
+    flex-flow:  column wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: 100vw;
+    height: auto;
+    padding: 4rem;
+    color: #ffffff;
+}
+
+.about-heading {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+#project-card-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    justify-self: center;
+    align-content: space-between;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 280px;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+}
+
+.project-card img {
+    height: 272px;
+    aspect-ratio: 4/3;
+    width: auto;
+    border: 4px solid #939c4f;
+    border-radius: 10px;
+}
+
+.project-card-layer {
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.6), #adb759);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    transition: height 0.3s ease-in-out;
+}
+
+.project-card-layer h3 {
+    height: 20%;
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-top: 3rem;
+    margin-bottom: 0;
+}
+
+.project-card-layer p {
+    height: 20%;
+    color: #ffffff;
+    font-size: 1.3rem;
+    text-align: justify;
+    margin: 0 2rem 0 2rem;
+}
+
+.project-card:hover .project-card-layer {
+    height: 100%;
+}
+
+/* contact me section */
+
+#contact-me-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    width: 100vw;
+    height: auto;
+    padding: 4rem;
+    color: #ffffff;
+}
+
+
+
+/* mobile stuff */
 
 @media only screen and (max-width: 600px) {
     #textBody {
@@ -133,10 +297,17 @@ svg {
         text-align: justify;
     }
 
-    #more-information img {
-        aspect-ratio: 1 / 1;
-        width: 150px;
+    #more-information #profile-pic {
+        aspect-ratio: 9 / 16;
         height: 150px;
+    }
+
+    #arran {
+        content: url(assets/photos/arran_mobile.webp);
+        z-index: -100;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
     }
 }
 
@@ -146,7 +317,7 @@ svg {
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    z-index: 2;
+    z-index: -2;
 }
 
 #scroll {
