@@ -9,41 +9,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body onload="typeCharacters()">
-    <img id="arran" alt="arran-background">
-    <div id="introduction">
-        <p id="textHeading"></p>
-        <p id="textBody"></p>
-        <div class="links">
-            <a href="https://github.com/mrktrnbll">github</a>
-            <a href="https://www.linkedin.com/in/mrktrnbll/">linkedIn</a>
-            <a href="https://www.instagram.com/mrktrnbll15/">instagram</a>
+<body id="main-body-wrapper" onload="typeCharacters()">
+    <div id="first-page">
+        <img id="arran" alt="arran-background">
+        <div id="introduction">
+            <p id="textHeading"></p>
+            <p id="textBody"></p>
+            <div class="links">
+                <a href="https://github.com/mrktrnbll">github</a>
+                <a href="https://www.linkedin.com/in/mrktrnbll/">linkedIn</a>
+                <a href="https://www.instagram.com/mrktrnbll15/">instagram</a>
+            </div>
         </div>
     </div>
+
+
     <div id="container-for-scroll">
-        <a href="#more-information" style="width: 46px; height: 46px;position: fixed; margin-top: 92vh;">
+        <a style="width: 46px; height: 46px; margin-top: 92vh;">
             <div id="scroll"></div>
         </a>
     </div>
+
     <div id="more-information">
-        <h2>Who Am I?</h2>
         <div id="about-container">
             <img id="profile-pic" src="assets/photos/profile.webp" alt="profile-pic">
-            <p id="about-extended">
-                Hello, my name is Mark Turnbull, and I am a Software Engineer passionate about building software that is both functional and highly robust. I am currently studying Computer Science at the University of Glasgow and have experience in full-stack web development, machine and deep learning, and low-level Rust programming. Above all, I am a problem solver who thrives on tackling complex challenges and crafting impactful digital solutions. While I have specific expertise in various technologies, I'm quick to learn and adapt, so don't let the lack of a perfect match in experience hold you back - I'm here to solve problems, no matter the tools or domain.
-            </p>
-        </div>
-        <div id="projects">
-            <div class="container">
-                <h2 id="project-header">My Projects</h2>
-            </div>
-            <div class="contents"></div>
-        </div>
-    </div>
+            <div id="about-container-text">
+                <h2 class="about-heading">More On Me!</h2>
+                <p id="about-extended">
+                    Hey, I'm Mark as software engineer with a passion for web development, data science,
+                    AI and Machine Learning. I love general solutions and find the technicality of proposing systems
+                    that can solve general problems as my creative outlet.
+                </p>
 
-    <div id="end-padding"></div>
-    
+                <div id="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li>
+                            <span>Web Development</span>
+                            <br>
+                            React, Next.js, TypeScript, HTML, CSS, Material UI, Tailwind CSS
+                        </li>
+                        <li>
+                            <span>Cloud Deployment</span>
+                            <br>
+                            GCP, AWS, Docker, CI/CD, Linux
+                        </li>
+                        <li>
+                            <span>Database Design</span>
+                            <br>
+                            Deep understanding of relational and non-relational databases
+                        </li>
+                        <li>
+                            <span>Mobile Development</span>
+                            <br>
+                            React Native, Android, iOS
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li>
+                            <span>Software Engineer</span>
+                            <br>
+                            2024 Mar. to Present
+                            <br>
+                            GUSS, Glasgow University Software Service
+                        </li>
+                        <li>
+                            <span>Test Engineer</span>
+                            <br>
+                            2024 Jun. to 2024 Nov.
+                            <br>
+                            Hexis
+                        </li>
+                        <li>
+                            <span>Fullstack Software Engineer</span>
+                            <br>
+                            2023 Sept. to 2024 May.
+                            <br>
+                            Cancer Research UK Scotland Institute
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span></span></li>
+                        <li>
+                            <span>Computing Science, BSc (hons)</span>
+                            <br>
+                            University of Glasgow, 2021 - 2025
+                        </li>
+                        <li>
+                            <span>Mathematics, Certificate of Higher Education</span>
+                            <br>
+                            University of Aberdeen, 2019 - 2020
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <svg id="wave-divider" viewBox="0 0 1000 50" preserveAspectRatio="none">
+            <path d="M0,25 Q125,0 250,25 Q375,50 500,25 Q625,0 750,25 Q875,50 1000,25" fill="none" stroke="#adb759" stroke-width="4"/>
+        </svg>
+
+        <div id="projects-container">
+            <h2 class="about-heading">Projects</h2>
+            <div id="project-card-container">
+                <div class="project-card">
+                    <img src="assets/photos/hexis_thumbnail.webp" alt="hexis">
+                    <div class="project-card-layer">
+                        <h3 class="project-title">Mobile and Web App for Athletes</h3>
+                        <p class="project-description">
+                            Built a regression test suite for a hexis.live using Playwright, Jest, and TypeScript.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="assets/photos/enigma.webp" alt="enigma">
+                    <div class="project-card-layer">
+                        <h3 class="project-title">Web-based 3D Enigma Machine</h3>
+                        <p class="project-description">
+                            A web-based 3D implementation of the Enigma machine, built with React,
+                            TypeScript and Three.js.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="assets/photos/ukri-logo.webp" alt="ukri">
+                    <div class="project-card-layer">
+                        <h3 class="project-title">Cancer Research Data Portal</h3>
+                        <p class="project-description">
+                            Built a website for the Cancer Research UK Scotland Institute researchers to share and
+                            collaborate their data.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="assets/photos/ml_breastcancer.png" alt="ml-thing">
+                    <div class="project-card-layer">
+                        <h3 class="project-title">Breast Cancer Classifier</h3>
+                        <p class="project-description">
+                            A machine learning model to classify breast cancer using the Wisconsin
+                            Breast Cancer Dataset. Built with Python, Scikit-learn, and Pandas.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="assets/photos/bee.png" alt="bee-pomo">
+                    <div class="project-card-layer">
+                        <h3 class="project-title">Bee Pomodoro Timer</h3>
+                        <p class="project-description">
+                            My first every project. It is terrible, but it was where I started. From this to Cancer
+                            Research to ML models that predict cancer. It's a reminder of how far I have come.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="assets/photos/website.webp" alt="website">
+                    <div class="project-card-layer">
+                        <h3 class="project-title">This website</h3>
+                        <p class="project-description">
+                            Nothing special - but for to long perfect got in the way of done. This will do for now ;)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <svg id="wave-divider" viewBox="0 0 1000 50" preserveAspectRatio="none">
+            <path d="M0,25 Q125,50 250,25 Q375,0 500,25 Q625,50 750,25 Q875,0 1000,25" fill="none" stroke="#adb759" stroke-width="4"/>
+        </svg>
+
+        <div id="contact-me-container">
+            <h2 class="about-heading">Contact Me</h2>
+            <div id="contact-me-buttons">
+                <a href="mailto:mrktrnbll@gmail.com" style="color: #adb759"><i class="fa fa-envelope" style="font-size: 3rem; cursor: pointer"></i></a>
+                <a href="https://www.instagram.com/mrktrnbll15/" style="color: #adb759"><i class="fa fa-instagram" style="font-size: 3rem; cursor: pointer"></i></a>
+                <a href="https://www.linkedin.com/in/mrktrnbll/" style="color: #adb759"><i class="fa fa-linkedin-square" style="font-size: 3rem; cursor: pointer"></i></a>
+            </div>
+        </div>
+
+    </div>
     <script src="script.js"></script>
 </body>
