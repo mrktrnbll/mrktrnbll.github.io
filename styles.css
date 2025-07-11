@@ -307,6 +307,11 @@ svg {
     padding-bottom: 3rem;
 }
 
+contact-container-footer {
+    display: flex;
+    flex-flow: row wrap;
+}
+
 #contact-footer p {
     font-size: 1rem;
     margin-top: 2rem;
