@@ -23,12 +23,10 @@ svg {
     margin: 0 0 1rem;
 }
 
-
 #main-body-wrapper {
     display: flex;
     flex-flow: row wrap;
 }
-
 
 /* landing page starts */
 
@@ -44,11 +42,13 @@ svg {
     width: 100vw;
     height: 100vh;
     position: fixed;
+    object-fit: cover;
 }
 
 #introduction {
     padding-top: 6vh;
     padding-left: 8vw;
+    padding-right: 8vw;
     display: flex;
     flex-flow: column wrap;
     position: absolute;
@@ -78,8 +78,13 @@ svg {
     z-index: 10;
 }
 
-/* landing page ends */
+.links a {
+    margin-right: 1rem;
+    color: inherit;
+    text-decoration: none;
+}
 
+/* landing page ends */
 
 /* scrolled up about section starts */
 
@@ -124,6 +129,7 @@ svg {
 #profile-pic {
     height: 500px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 #about-extended {
@@ -136,6 +142,7 @@ svg {
 #tab-titles {
     display: flex;
     margin: 1rem 0 1rem;
+    flex-wrap: wrap;
 }
 
 #tab-container {
@@ -197,7 +204,7 @@ svg {
 
 #projects-container {
     display: flex;
-    flex-flow:  column wrap;
+    flex-flow: column wrap;
     justify-content: center;
     align-content: flex-start;
     width: 100vw;
@@ -238,6 +245,7 @@ svg {
     width: auto;
     border: 4px solid #939c4f;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .project-card-layer {
@@ -305,30 +313,14 @@ svg {
     margin-bottom: 1rem;
 }
 
+#contact-me-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
 
-/* mobile stuff */
-
-@media only screen and (max-width: 600px) {
-    #textBody {
-        order: 2;
-        font-size: 1.5em;
-        width: 80vw;
-        padding-top: .2em;
-        text-align: justify;
-    }
-
-    #more-information #profile-pic {
-        aspect-ratio: 9 / 16;
-        height: 150px;
-    }
-
-    #arran {
-        content: url(assets/photos/arran_mobile.webp);
-        z-index: -100;
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-    }
+#contact-me-buttons a {
+    text-decoration: none;
 }
 
 #container-for-scroll {
@@ -348,18 +340,19 @@ svg {
     border-radius: 50%;
     animation: down 1.5s infinite;
     -webkit-animation: down 1.5s infinite;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 15px;
-        left: 13px;
-        width: 14px;
-        height: 14px;
-        border-left: 2px solid #ffffff;
-        border-bottom: 2px solid #ffffff;
-        transform: rotate(135deg);
-    }
     z-index: 1;
+}
+
+#scroll::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 13px;
+    width: 14px;
+    height: 14px;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(135deg);
 }
 
 @keyframes down {
@@ -382,5 +375,212 @@ svg {
     }
     40% {
         transform: translate(0);
+    }
+}
+
+/* Mobile Responsive Styles */
+@media only screen and (max-width: 768px) {
+    #textHeading {
+        font-size: 2.5em;
+        width: auto;
+    }
+
+    #textBody {
+        font-size: 1.3em;
+        width: 80vw;
+        padding-top: .2em;
+        text-align: justify;
+    }
+
+    #introduction {
+        padding-top: 6vh;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    #about-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+    }
+
+    #about-container-text {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 2rem;
+    }
+
+    #profile-pic {
+        height: 300px;
+        width: 200px;
+    }
+
+    #about-extended {
+        font-size: 1.2rem;
+    }
+
+    .tab-links {
+        font-size: 1.2rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .tab-contents ul li {
+        font-size: 0.9rem;
+    }
+
+    .tab-contents ul li span {
+        font-size: 1.5rem;
+    }
+
+    .about-heading {
+        font-size: 2.5rem;
+        width: auto;
+        text-align: center;
+    }
+
+    #projects-container {
+        padding: 2rem 1rem;
+    }
+
+    #project-card-container {
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: center;
+    }
+
+    .project-card {
+        aspect-ratio: 4/3;
+        max-width: 400px;
+        margin-right: 0;
+    }
+
+    .project-card img {
+        max-width: 392px;
+    }
+
+    #contact-me-container {
+        padding: 2rem 1rem 0;
+    }
+
+    .contact-description {
+        width: 90%;
+        text-align: center;
+    }
+
+    #contact-me-buttons {
+        gap: 1.5rem;
+    }
+
+    #arran {
+        content: url(assets/photos/arran_mobile.webp);
+    }
+}
+
+/* Extra small mobile devices */
+@media only screen and (max-width: 480px) {
+    #textHeading {
+        font-size: 2em;
+    }
+
+    #textBody {
+        font-size: 1.1em;
+        width: 85vw;
+    }
+
+    #introduction {
+        padding-top: 4vh;
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+
+    #about-container {
+        padding: 1rem 0.5rem;
+    }
+
+    #profile-pic {
+        height: 250px;
+        width: 170px;
+    }
+
+    #about-extended {
+        font-size: 1rem;
+    }
+
+    .tab-links {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+    }
+
+    .tab-contents ul li {
+        font-size: 0.8rem;
+    }
+
+    .tab-contents ul li span {
+        font-size: 1.2rem;
+    }
+
+    .about-heading {
+        font-size: 2rem;
+    }
+
+    #projects-container {
+        padding: 1rem 0.5rem;
+    }
+
+    .project-card {
+        aspect-ratio: 4/3;
+        max-width: 300px;
+        margin-right: 0;
+    }
+
+    .project-card img {
+        max-width: 292px;
+    }
+
+    .project-card-layer h3 {
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    .project-card-layer p {
+        font-size: 0.9rem;
+    }
+
+    #contact-me-container {
+        padding: 1rem 0.5rem 0;
+    }
+
+    .contact-description {
+        width: 95%;
+        font-size: 0.9rem;
+    }
+
+    #contact-me-buttons {
+        gap: 1rem;
+    }
+
+    #contact-me-buttons i {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* Landscape orientation for mobile */
+@media only screen and (max-height: 600px) and (orientation: landscape) {
+    #introduction {
+        padding-top: 2vh;
+    }
+
+    #textHeading {
+        font-size: 2em;
+    }
+
+    #textBody {
+        font-size: 1.2em;
+        width: 60vw;
+    }
+
+    #container-for-scroll a {
+        margin-top: 80vh;
     }
 }
