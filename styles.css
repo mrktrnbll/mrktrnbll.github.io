@@ -254,6 +254,7 @@ svg {
     justify-content: flex-start;
     align-items: center;
     transition: height 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .project-card-layer h3 {
