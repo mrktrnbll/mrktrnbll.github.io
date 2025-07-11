@@ -138,6 +138,11 @@ svg {
     margin: 1rem 0 1rem;
 }
 
+#tab-container {
+    display: flex;
+    flex-flow: column wrap;
+}
+
 .tab-links {
     margin-right: 2rem;
     font-size: 1.5rem;
@@ -275,15 +280,29 @@ svg {
 
 #contact-me-container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     justify-content: center;
     align-content: center;
+    align-items: center;
+    justify-items: center;
     width: 100vw;
     height: auto;
-    padding: 4rem;
     color: #ffffff;
+    margin-bottom: 0;
+    padding: 4rem 4rem 0;
 }
 
+.contact-description {
+    text-align: justify;
+    width: 30%;
+    padding-bottom: 3rem;
+}
+
+#contact-footer p {
+    font-size: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
 
 
 /* mobile stuff */
@@ -364,142 +383,3 @@ svg {
         transform: translate(0);
     }
 }
-
-/*    #about-container {*/
-/*        display: flex;*/
-/*        flex-flow: row nowrap;*/
-/*        margin: 0 20px;*/
-/*    }*/
-
-/*    }*/
-
-/*    #project-header {*/
-/*        margin-top: 2em;*/
-/*        align-self: center;*/
-/*    }*/
-
-/*    .container {*/
-/*        display: flex;*/
-/*        flex-flow: column wrap;*/
-/*        justify-content: center;*/
-/*        align-content: center;*/
-/*        width: inherit;*/
-/*    }*/
-
-/*    #projects {*/
-/*        display: flex;*/
-/*        flex-flow: row wrap;*/
-/*        align-content: flex-start;*/
-/*        justify-content: center;*/
-/*        z-index: 4;*/
-/*        color: white;*/
-/*        width: 100vw;*/
-/*    }*/
-
-/*    #about-extended {*/
-/*        text-align: justify;*/
-/*        margin: 0 20px;*/
-/*    }*/
-
-/*    .headers {*/
-/*        font-size: xx-large;*/
-/*        width: 8em;*/
-/*    }*/
-
-/*    #projects {*/
-/*        width: 100vw;*/
-/*        height: 100vh;*/
-/*        transition: all 0.4s ease-in-out;*/
-/*    }*/
-
-/*    .contents {*/
-/*        display: flex;*/
-/*        flex-flow: column wrap;*/
-/*        width: inherit;*/
-/*        justify-content: center;*/
-/*    }*/
-
-/*    .project {*/
-/*        display: flex;*/
-/*        flex-flow: column wrap;*/
-/*        max-height: 240px;*/
-/*        width: auto;*/
-/*        margin-bottom: 2em;*/
-/*        align-content: center;*/
-/*    }*/
-
-/*    .project img {*/
-/*        max-height: 240px;*/
-/*        min-height: 240px;*/
-/*        width: auto;*/
-/*        border: 5px solid lightblue;*/
-/*        border-radius: 10px;*/
-/*    }*/
-
-/*    .project-description {*/
-/*        display: flex;*/
-/*        flex-flow: column wrap;*/
-/*        height: inherit;*/
-/*        text-align: justify;*/
-/*        width: 40vw;*/
-/*        align-items: center;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (max-width: 768px) {*/
-
-/*    body {*/
-/*        font-family: "VT323";*/
-/*        background-image: url(assets/photos/arran_mobile.webp);*/
-/*        background-repeat: no-repeat;*/
-/*        background-size: cover;*/
-/*        display: flex;*/
-/*        flex-flow: column wrap;*/
-/*        justify-content: left;*/
-/*        width: 100vw;*/
-/*        height: 100vh;*/
-/*        margin: 0;*/
-/*    }*/
-
-/*    #introduction {*/
-/*        z-index: 2;*/
-/*        order: 1;*/
-/*        padding-top: 6vh;*/
-/*        padding-left: 4vw;*/
-/*        height: 30vh;*/
-/*        display: flex;*/
-/*        flex-flow: column wrap;*/
-/*        font-size: 3em;*/
-/*    }*/
-
-/*    #textHeading {*/
-/*        order: 1;*/
-/*        font-size: xx-large;*/
-/*        width: 8em;*/
-/*    }*/
-
-/*    #textBody {*/
-/*        order: 2;*/
-/*        font-size: x-large;*/
-/*        width: 90vw;*/
-/*        padding-top: .2em;*/
-/*    }*/
-
-/*    .links {*/
-/*        order: 3;*/
-/*        padding-top: .2em;*/
-/*        font-size: x-large;*/
-/*        opacity: 0;*/
-/*        transition: opacity 1s ease-in-out;*/
-/*    }*/
-
-/*    #about-extended {*/
-/*        order: 4;*/
-/*        padding-top: 60vh;*/
-/*        font-size: small;*/
-/*    }*/
-
-/*    .headers {*/
-/*        font-size: xx-large;*/
-/*        width: 8em;*/
-/*    }*/

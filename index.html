@@ -43,75 +43,76 @@
                     AI and Machine Learning. I love general solutions and find the technicality of proposing systems
                     that can solve general problems as my creative outlet.
                 </p>
-
-                <div id="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
-                </div>
-                <div class="tab-contents active-tab" id="skills">
-                    <ul>
-                        <li>
-                            <span>Web Development</span>
-                            <br>
-                            React, Next.js, TypeScript, HTML, CSS, Material UI, Tailwind CSS
-                        </li>
-                        <li>
-                            <span>Cloud Deployment</span>
-                            <br>
-                            GCP, AWS, Docker, CI/CD, Linux
-                        </li>
-                        <li>
-                            <span>Database Design</span>
-                            <br>
-                            Deep understanding of relational and non-relational databases
-                        </li>
-                        <li>
-                            <span>Mobile Development</span>
-                            <br>
-                            React Native, Android, iOS
-                        </li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="experience">
-                    <ul>
-                        <li>
-                            <span>Software Engineer</span>
-                            <br>
-                            2024 Mar. to Present
-                            <br>
-                            GUSS, Glasgow University Software Service
-                        </li>
-                        <li>
-                            <span>Test Engineer</span>
-                            <br>
-                            2024 Jun. to 2024 Nov.
-                            <br>
-                            Hexis
-                        </li>
-                        <li>
-                            <span>Fullstack Software Engineer</span>
-                            <br>
-                            2023 Sept. to 2024 May.
-                            <br>
-                            Cancer Research UK Scotland Institute
-                        </li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="education">
-                    <ul>
-                        <li><span></span></li>
-                        <li>
-                            <span>Computing Science, BSc (hons)</span>
-                            <br>
-                            University of Glasgow, 2021 - 2025
-                        </li>
-                        <li>
-                            <span>Mathematics, Certificate of Higher Education</span>
-                            <br>
-                            University of Aberdeen, 2019 - 2020
-                        </li>
-                    </ul>
+                <div id="tab-container">
+                    <div id="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li>
+                                <span>Web Development</span>
+                                <br>
+                                React, Next.js, TypeScript, HTML, CSS, Material UI, Tailwind CSS
+                            </li>
+                            <li>
+                                <span>Cloud Deployment</span>
+                                <br>
+                                GCP, AWS, Docker, CI/CD, Linux
+                            </li>
+                            <li>
+                                <span>Database Design</span>
+                                <br>
+                                Deep understanding of relational and non-relational databases
+                            </li>
+                            <li>
+                                <span>Mobile Development</span>
+                                <br>
+                                React Native, Android, iOS
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li>
+                                <span>Software Engineer</span>
+                                <br>
+                                2024 Mar. to Present
+                                <br>
+                                GUSS, Glasgow University Software Service
+                            </li>
+                            <li>
+                                <span>Test Engineer</span>
+                                <br>
+                                2024 Jun. to 2024 Nov.
+                                <br>
+                                Hexis
+                            </li>
+                            <li>
+                                <span>Fullstack Software Engineer</span>
+                                <br>
+                                2023 Sept. to 2024 May.
+                                <br>
+                                Cancer Research UK Scotland Institute
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span></span></li>
+                            <li>
+                                <span>Computing Science, BSc (hons)</span>
+                                <br>
+                                University of Glasgow, 2021 - 2025
+                            </li>
+                            <li>
+                                <span>Mathematics, Certificate of Higher Education</span>
+                                <br>
+                                University of Aberdeen, 2019 - 2020
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -190,10 +191,20 @@
 
         <div id="contact-me-container">
             <h2 class="about-heading">Contact Me</h2>
-            <div id="contact-me-buttons">
-                <a href="mailto:mrktrnbll@gmail.com" style="color: #adb759"><i class="fa fa-envelope" style="font-size: 3rem; cursor: pointer"></i></a>
-                <a href="https://www.instagram.com/mrktrnbll15/" style="color: #adb759"><i class="fa fa-instagram" style="font-size: 3rem; cursor: pointer"></i></a>
-                <a href="https://www.linkedin.com/in/mrktrnbll/" style="color: #adb759"><i class="fa fa-linkedin-square" style="font-size: 3rem; cursor: pointer"></i></a>
+            <p class="contact-description">Contact me on any of the platforms below! LinkedIn and email are the best mediums. I am open to work
+            and collaboration if you are interested in; education, health tech or AI/ML for good not social badness.</p>
+
+
+            <div id="contact-container">
+                <div id="contact-me-buttons">
+                    <a href="mailto:mrktrnbll@gmail.com" style="color: #adb759"><i class="fa fa-envelope" style="font-size: 3rem; cursor: pointer"></i></a>
+                    <a href="https://www.instagram.com/mrktrnbll15/" style="color: #adb759"><i class="fa fa-instagram" style="font-size: 3rem; cursor: pointer"></i></a>
+                    <a href="https://www.linkedin.com/in/mrktrnbll/" style="color: #adb759"><i class="fa fa-linkedin-square" style="font-size: 3rem; cursor: pointer"></i></a>
+                </div>
+            </div>
+
+            <div id="contact-footer">
+                <p>@ mrktrnbll 2025 - some right reserved? ;p</p>
             </div>
         </div>
 
